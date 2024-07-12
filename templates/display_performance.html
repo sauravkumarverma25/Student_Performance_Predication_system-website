@@ -1,0 +1,66 @@
+{% extends 'base1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block style %}
+    <style>
+        .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col {
+            flex: 1;
+            border: 5px solid black;
+            padding: 15px;
+            text-align: justify;
+            margin: 10px;
+        }
+
+        .column-heading {
+            color: black;
+        }
+    </style>
+    {% endblock %}
+    <title>Row with Three Columns</title>
+</head>
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col" style="padding-left:10px">
+            <h2 class="column-heading" style="font-family: Arial, sans-serif;font-size: 1em;
+            margin-bottom: 10px;color:red;font-size: 2em;font-weight: bold;text-align: center;">Low Performers</h2> <hr style="border-size:5px;border-color:black;">
+            <br>
+            <ul class="list-unstyled text-black" style="padding-left:100px">
+                {% for student in low_performers %}
+                    <li><a href="{% url 'subject_wise_low_performers' student_name=student %}">{{ student }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <h2 class="column-heading" style="font-family: Arial, sans-serif;font-size: 1em;
+            margin-bottom: 10px;color:green;font-size: 2em;font-weight: bold;text-align: center;">Medium Performers</h2><hr style="border-size:5px;border-color:black;">
+            <br><ul class="list-unstyled text-black" style="padding-left:100px">
+                {% for student in medium_performers %}
+                <li><a href="{% url 'subject_wise_low_performers' student_name=student %}">{{ student }}</a></li>
+                    
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <h2 class="column-heading" style="font-family: Arial, sans-serif;font-size: 1em;
+            margin-bottom: 10px;color:blue;font-size: 2em;font-weight: bold;text-align: center;">High Performers</h2><hr style="border-size:5px;border-color:black;">
+            <br><ul class="list-unstyled text-black" style="padding-left:100px">
+                {% for student in high_performers %}
+                <li><a href="{% url 'subject_wise_low_performers' student_name=student %}">{{ student }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<br><br>
+{% endblock %}

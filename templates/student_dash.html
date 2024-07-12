@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto flex flex-wrap p-16 m-12">
+    <!-- Student Profile Section -->
+    <div class="w-full lg:w-1/2 bg-gray-600 p-4 mb-10 lg:mb-0 rounded-lg flex flex-col justify-center items-center relative" style="background-image: url('https://moderndiplomacy.eu/wp-content/uploads/2023/04/students-education.jpg'); background-size: cover;">
+        <h1 class="mb-6 text-2xl text-black">
+           <b> Student Profile</b>
+        </h1>
+    
+        <div class="border p-4 mb-4 bg-white rounded-lg" style="width: 80%;">
+            <p class="text-gray-800"><strong>Student Name:</strong> {{ student_profile.name }}</p>
+            <p class="text-gray-800"><strong>Roll Number:</strong> {{ student_profile.roll_number }}</p>
+            <p class="text-gray-800"><strong>Mobile Number:</strong> {{ student_profile.mobile_number }}</p>
+            <p class="text-gray-800"><strong>Address:</strong> {{ student_profile.address }}</p>
+            <!-- Add other fields accordingly -->
+        </div>
+    </div>
+    
+
+    <!-- Student Dashboard Section -->
+    <div class="w-full lg:w-1/2 bg-white p-4 rounded-lg">
+        <div class="text-center">
+            <h1 class="text-3xl text-green-500 mb-4"><b>Your Performance Level:</b></h1>
+            <h2 class="text-4xl text-red-500">{{ performance_level }}</h2>
+        </div>
+
+        <div class="mt-8">
+            <p class="text-gray-800">Welcome, {{ user.username }}</p>
+
+            <h3 class="text-2xl text-black mb-4"><b>Study Materials:</b></h3>
+            <ul class="list-disc text-gray-800">
+                {% for material in teacher_materials %}
+                    <li>
+                        <a href="{{ material.links }}" target="_blank" class="text-blue-500">{{ material.links }}</a><br>
+                        Suggestion: {{ material.sms_recommendations }}<br>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mt-8">
+            <h3 class="text-2xl text-black mb-4"><b>Low Subject List:</b></h3>
+            <ul class="list-disc text-gray-800">
+                {% for material in low_marks_subjects %}
+                    <li>{{ material }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mt-8">
+            <h3 class="text-2xl text-black mb-4"><b>Support and Strategies for Academic Improvement</b></h3><hr>
+            {% if performance_level == 'Low' %}
+                <p class="text-red-500">I hope this message finds you well. I wanted to take a moment to discuss your academic performance and explore ways to support you in your journey towards improvement.</p>
+                <ul>
+                    <li><b> - Identify Specific Challenges:</b>
+                        Take a moment to reflect on the specific areas where you find difficulty. Is it a particular subject, certain concepts, or study techniques? Identifying these challenges will help us tailor support to your needs.
+                    </li>
+                      <li> <b> - Individualized Support:</b>
+                        I am here to provide individualized assistance. Whether it's extra tutoring, additional resources, or clarification on certain topics, please don't hesitate to reach out. Your success is our priority.
+                      </li> <li>
+                       <b>- Regular Feedback:</b>
+                        Feedback is a crucial part of the learning process. I will ensure to provide regular feedback on your assignments and assessments. This will help you understand your strengths and areas that require improvement.
+                      </li><li><b>
+                       - Study Skills Workshop:</b>
+                        We will be organizing workshops on effective study techniques and time management. These skills are valuable not only for academics but also for personal development. I encourage you to participate and make the most of these opportunities.
+                
+                
+                        </li>    </ul>
+            {% elif performance_level == 'Medium' %}
+                <p class="text-yellow-500">I hope this message finds you well. I wanted to take a moment to discuss your academic performance and explore ways to further enhance your learning experience. You've been doing well, and I believe there are some strategies that can help you reach even greater heights. Here are a few personalized suggestions:</p>
+                <ul>
+                <li><b>- Challenge Yourself:</b>
+
+                Consider taking on more challenging coursework or engaging in additional projects that align with your interests. This will not only deepen your understanding but also provide a sense of fulfillment.
+                </li>
+                <li><b>- Peer Collaboration:</b>
+                
+                Explore opportunities to collaborate with your peers on group projects or study groups. Learning from each other can be a powerful way to expand your knowledge and perspectives.
+            </li>
+                <li><b>- Set Clear Goals:</b>
+                
+                Let's work together to set clear and achievable academic goals. Regularly reviewing and adjusting these goals will help keep you motivated and focused on continuous improvement.
+            </li>
+                <li><b> - Develop Critical Skills:</b>
+                
+                Focus on honing critical thinking and problem-solving skills. Applying classroom concepts to real-world scenarios can help you see the practical implications of your studies.
+            </li>
+                <li><b>- Explore Interests:</b>
+                Take some time to explore extracurricular activities or clubs that align with your passions. This can provide a well-rounded educational experience and open up new avenues for growth.
+            </li>
+        </ul>
+            {% elif performance_level == 'High' %}
+                <p class="text-green-500">I hope this message finds you well. Your dedication and hard work in your studies have not gone unnoticed, and I wanted to take a moment to provide some suggestions for further improvement and discuss potential placement options.</p>
+               <br> <ul>
+                    <li><b>- Seek Intellectual Challenges:</b>
+                        Embrace opportunities for advanced coursework or independent study to continue challenging yourself intellectually. This can involve delving deeper into subjects that truly captivate your interest.
+                    </li>
+                        <li><b>- Expand Your Horizons:</b>
+                        Consider exploring areas outside your comfort zone. Engaging in diverse subjects or extracurricular activities can broaden your perspectives and enrich your overall educational experience.
+                        </li>
+
+                        <li><b> 
+                        - Advanced Courses:</b>
+                        Explore advanced courses or honors classes that align with your interests. These will provide a deeper understanding of the subjects you are passionate about.
+                        </li>
+                        <li><b> 
+                        - Independent Projects:</b>
+                        Consider pursuing independent projects or research. This could involve collaborating with teachers on specific topics or exploring your own ideas under guidance.
+                        </li>
+                        <li><b> 
+                       - Leadership Roles:</b>
+                        Seek leadership roles in clubs or student organizations. Your skills and enthusiasm can contribute significantly to the success of these groups.
+                        </li>
+                        <li><b> 
+                        - College and Career Guidance:</b>
+                        Begin exploring potential college or career paths. Attend workshops, seek guidance from counselors, and consider internships or programs that align with your aspirations.
+                        </li>
+                    </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

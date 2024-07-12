@@ -1,0 +1,40 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<br><br>
+<div class="max-w-lg mx-auto flex flex-wrap p-2">
+    <h2><b>About Me</b></h2>
+        <p>Welcome to our innovative Student Performance System System! The Student Performance System is designed to efficiently manage and analyze student performance data for both teachers and students.The system aims to provide valuable insights into academic achievements, helping educators make data-driven decisions and aiding students in tracking their progress.</p>
+        <br>
+        <ul>
+            <li><b>Teacher Dashboard:</b></li>
+
+              <li>- Teachers log in and upload study materials, CSV files, and performance-related recommendations.</li>
+              <li>- The system processes uploaded data and recommends study materials to students based on their performance levels.</li>
+               </li>
+               <br>
+              
+        </ul>
+    <div class="w-full bg-gray-600 p-4 rounded-xl">
+        
+      
+        <h1 class="mb-6 p-4 text-2xl text-center text-white"> Teacher Dashboard </h1>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data" class="space-y-3">
+                {% csrf_token %}
+                
+                <!-- CSV File -->
+                <div class="p-4">
+                    <label for="{{ form.csv_file.id_for_label }}" class="text-white">Upload CSV File</label>
+                    {{ form.csv_file }}
+                </div>
+                
+                <center>
+                    <button type="submit" class="py-4 rounded-xl px-6 ml-2 mb-2 text-white bg-green-500 hover:bg-green-700">Submit</button>
+                </center>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% endblock %}

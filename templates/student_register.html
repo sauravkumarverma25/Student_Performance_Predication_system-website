@@ -1,0 +1,59 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto flex flex-wrap p-6">
+    <div class="w-full bg-gray-600 p-4 rounded-xl">
+        <h1 class="mb-6 text-2xl text-center text-white">
+            Student Sign Up
+        </h1>
+
+        <form method="post" action="{% url 'student_signup' %}" class="space-y-3">
+            {% csrf_token %}
+            
+            <div class="p-4">
+                <label class="text-white">Username</label>
+                <input type="text" name="username" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            
+            <div class="p-4">
+                <label class="text-white">Password</label>
+                <input type="password" name="password1" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            <div class="p-4">
+                <label class="text-white">Retype Password</label>
+                <input type="password" name="password2" class="w-full mt-2 py-4 px-6 bg-white rounded-xl">
+            </div>
+            
+
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="p-6 bg-red-500 text-white rounded-xl m-2">
+                            <p class="p-2">{{ error|escape }}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <div class="p-6 bg-red-500 text-white rounded-xl m-2">
+                        <p class="p-2">{{ error|escape }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+           
+
+            <div>
+                <button class="py-4 rounded-xl px-6 ml-2 mb-2 text-white bg-green-500 hover:bg-green-700">Submit</button>
+            </div>
+            <div class="border-t pt-3">
+                <p class="text-sm text-gray-500">
+                    Already have an account?
+                    <a class="ml-2 text-blue-500" href="{% url 'user_login' %}">Login Now</a>
+                </p>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<br><br>    
+<b><h1 style="font-family:verdana;font-size:150%;text-align:center;color:blue;">{{ student_name }} (Roll Number: {{ roll_number }}) - Subject-wise Performance</h1>
+    <hr style="border-size:20px;border-color:black;"></b><br>
+<div class="max-w-lg mx-auto flex flex-wrap p-2">
+    <div class="w-full bg-gray-600 p-4 rounded-xl text-white">
+
+
+    <ul>
+        {% for subject, marks in subjects_and_marks.items %}
+            <li>{{ subject }} ___ {{ marks }}</li><br>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+<br><br><br>
+{% endblock %}

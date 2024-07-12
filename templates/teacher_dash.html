@@ -1,0 +1,45 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto flex flex-wrap p-6">
+    <div class="w-full bg-gray-600 p-4 rounded-xl">
+        <nav class="flex justify-between items-center mb-4">
+            <div class="text-white">
+                <h1 class="text-2xl">Teacher Dashboard</h1>
+            </div>
+        </nav>
+
+        <form method="post" enctype="multipart/form-data" class="bg-grey p-8 rounded shadow-md">
+            {% csrf_token %}
+
+            
+
+            <div class="mb-4">
+                <label for="performance_level" class="block text-gray-700 text-sm font-bold mb-2 text-white" >Performance Level:</label>
+                {{ form.performance_level }}
+            </div>
+
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700 text-sm font-bold mb-2 text-white">Material Title:</label>
+                {{ form.title }}
+            </div>
+
+
+            <div class="mb-4">
+                <label for="links" class="block text-gray-700 text-sm font-bold mb-2 text-white">Links (optional):</label>
+                {{ form.links }}
+            </div>
+
+            <div class="mb-4">
+                <label for="sms_recommendations" class="block text-gray-700 text-sm font-bold mb-2 text-white">SMS Recommendations (optional):</label>
+                {{ form.sms_recommendations }}
+            </div>
+
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-700">Upload Material</button>
+        
+        </form>
+       
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends 'base1.html' %}
+
+{% block style %}
+<style>
+
+/* Style for form div */
+.form-container {
+    width: 50%; /* Adjust the width as needed */
+    margin: auto;
+}
+
+/* Style for form labels */
+.form-group label {
+    font-weight: bold;
+}
+
+/* Style for form inputs */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.btn-primary {
+    background-color: black;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <br><br>
+    <center>
+        <h1 style="color:black;font-size:150%;"><b>Student Performance Prediction</b></h1><hr>
+    </center>  
+    <br><br>
+      <div class="form-container">
+
+
+    <form action="result">
+        {% csrf_token %}
+        <div class="form-group row"> 
+        <div class="form-group">
+            <label for="gender"><b>Gender</b></label>
+            <input list="genderOptions" type="text" class="form-control" name="gender" placeholder="Select gender" required>
+            <datalist id="genderOptions">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </datalist>
+        </div>
+                    <div class="form-group">
+                        <label for="NationalITy">NationalITy</label>
+                        <input  list="NationalITyOptions" type="text" class="form-control" name="NationalITy" placeholder="" required>
+                        <datalist id="NationalITyOptions">
+                        
+                            <option value=0> Indian </option>
+                        
+                        </datalist> 
+                    </div>
+                    <div class="form-group">
+                        <label for="StageID">StageID</label>
+                        <input  list="StageIDOptions" type="text"  class="form-control" name="StageID" placeholder="" required>
+                        <datalist id="StageIDOptions">
+                        
+                            <option value=0> lowerlevel </option>
+                            <option value=1>MiddleSchool</option>
+                            <option value=2>HighSchool </option>
+                          
+                        </datalist> 
+                    </div>
+                    <div class="form-group">
+                        <label for="GradeID">GradeID</label>
+                        <input type="text" class="form-control" name="GradeID" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Topic">Topic</label>
+                        <input list="TopicOptions"  type="text"  class="form-control" name="Topic" placeholder="" required>
+
+                        <datalist id="TopicOptions">
+                        
+                            <option value=0> IT</option>
+                            <option value=1>Math</option>
+                            <option value=2>Chemistry </option>
+                            <option value=3>Science </option>
+                            <option value=4>English </option>
+                            <option value=5>Biology </option>
+                            <option value=5>History </option>
+                        </datalist> 
+
+                    </div>
+                    <div class="form-group">
+                        <label for="Semester">Semester</label>
+                        <input type="text" class="form-control" name="Semester" placeholder="" required>
+                    </div>
+                </div><div class="form-group row">
+
+                    <div class="form-group">
+                        <label for="raisedhands">raisedhands</label>
+                        <input type="text" class="form-control" name="raisedhands" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="VisITedResources">VisITedResources</label>
+                        <input type="text"  class="form-control" name="VisITedResources" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="AnnouncementsView">AnnouncementsView</label>
+                        <input type="text"  class="form-control" name="AnnouncementsView" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Discussion">Discussion</label>
+                        <input type="text"  class="form-control" name="Discussion" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ParentAnsweringSurvey">ParentAnsweringSurvey</label>
+                        <input list="ParentAnsweringSurveyOptions" type="text"  class="form-control" name="ParentAnsweringSurvey" placeholder="" required>
+                        <datalist id="ParentAnsweringSurveyOptions">
+                        
+                            <option value=0>Yes </option>
+                            <option value=1>No</option>
+                            
+                          
+                        </datalist> 
+
+                    </div>
+                    <div class="form-group">
+                        <label for="ParentschoolSatisfaction">ParentschoolSatisfaction</label>
+                        <input list="ParentschoolSatisfactionOptions" type="text" class="form-control" name="ParentschoolSatisfaction" placeholder="" required>
+                        <datalist id="ParentschoolSatisfactionOptions">
+                        
+                            <option value=0>Good </option>
+                            <option value=1>Bad</option>
+                            
+                          
+                        </datalist> 
+                    </div>
+                    <div class="form-group">
+                        <label for="StudentAbsenceDays">StudentAbsenceDays</label>
+                        <input list="StudentAbsenceDaysOptions"  type="text"  class="form-control" name="StudentAbsenceDays" placeholder="" required>
+                        <datalist id="StudentAbsenceDaysOptions">                        
+                            <option value=0> Above_Seven </option>
+                            <option value=1>Under_Seven</option>
+                                                      
+                        </datalist> 
+                    </div>
+                </div>
+                </div><br>
+                <center>
+                    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                </center>
+            </form>
+        </div><br><br>
+    </div>
+        {% endblock %}

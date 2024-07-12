@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+
+
+{% block content %}
+
+
+<div class="container py-5">
+
+        
+
+          <div class="card mb-4">
+            <div class="card-body p-5">
+              <b><h4 class="mb-4" style="font-size:50px;text-align:center;font-size:300%;" >Student Performance Prediction Output</h4>
+              </b>
+              <center> <h1 style="font-size:50px;color:black;text-align:center;" >------------------------------------------------------------</h1></center>
+              <div class="custom-scrollbar-css p-2">
+                <p class="font-times">
+                 <b> <h1 style="font-size:50px;color:brown;text-align:center;font-size:300%;"> {{ ans }}</h1></p></b>
+                 <center> <h1 style="font-size:50px;color:black;text-align:center;" >------------------------------------------------------------</h1></center>
+              <br><br>
+                {% if ans == 'Low Performace Predict' %}
+                    <p style="font-size:30px;color:red;text-align:center;font-size:200%;" >Your performance is low. Consider seeking additional help from teachers or tutors. Focus on understanding core concepts and practicing regularly.</p>
+                {% elif ans == 'Medium Performance Predict' %}
+                    <p style="font-size:30px;color:green;text-align:center;font-size:300%;" >Your performance is medium. Keep up the good work! Consider exploring advanced topics and practicing consistently to improve further.</p>
+                {% elif ans == 'High Performance Predict' %}
+                    <p style="font-size:30px;color:blue;text-align:center;font-size:300%;">Congratulations on your high performance! Continue challenging yourself with advanced materials and consider exploring opportunities for placement or advanced courses.</p>
+                {% endif %}
+            </div>
+
+            </div>
+          </div>
+            </div>
+        </div>
+        </div>
+
+</div>
+
+{% endblock  %}
