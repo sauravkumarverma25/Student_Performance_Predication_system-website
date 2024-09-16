@@ -3,7 +3,10 @@
             Student_Performance_Prediction_System
 </h1>
 
- -Currency Convert can Change the one country currency into another country currency.<br>
+ -Student performance predication This project will help those students who are lacking in their academics and also for those who wants to enhance their skills.
+Basically it’s a user interface where we have to put the data of students which includes the academic details and that UI will analyse, process  the user data and provide the required solution like improvement courses where the student is lacking with detail information
+This UI will be manage by the teacher/staff of the college from the Admin interface and student will review it from the Student interface
+<br>
 
 
 # Tech Stack Used:
