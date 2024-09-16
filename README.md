@@ -19,6 +19,7 @@ This UI will be manage by the teacher/staff of the college from the Admin interf
 <img alt="CSS" src="https://img.shields.io/badge/css-%23323330.svg?style=for-the-badge&logo=css&logoColor=%23F7DF1E"/>
 <img alt="SQL" src="https://img.shields.io/badge/sql-%23323330.svg?style=for-the-badge&logo=sql&logoColor=%23F7DF1E"/>
 <img alt="Anaconda" src="https://img.shields.io/badge/anaconda-%23323330.svg?style=for-the-badge&logo=anaconda&logoColor=%23F7DF1E"/>
+<img alt="Machine Learning" src="https://img.shields.io/badge/machine learning-%23323330.svg?style=for-the-badge&logo=ML&logoColor=%23F7DF1E"/>
 </div>
 
 ### 1. Login Page
